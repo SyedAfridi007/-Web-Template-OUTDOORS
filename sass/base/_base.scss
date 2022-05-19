@@ -1,0 +1,83 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;   
+}
+
+html{
+    font-size: 62.5%;  //1rem =10px, 10/16= 62.5%
+    scroll-behavior:smooth;
+
+  @include respond(tab-land){ //width <1200
+       font-size: 56.25%;   //1rem =9px, 9/16= 56.2%
+   }
+
+   @include respond(tab-port){  //width <900
+       font-size: 50%;    //1rem =8px, 8/16=50%
+   }
+
+   @include respond(big-desktop){  
+        font-size: 65.7%;     //1rem =11px, 11/16= 68.7%   
+   }
+}
+
+
+body{
+    padding: 3rem;
+    line-height: 1.7;
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+
+    @include respond(tab-port){
+        padding: 0rem;
+    }
+    
+}
+
+::-webkit-scrollbar{
+    width: 1rem;
+}
+::-webkit-scrollbar-track{
+    border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(to bottom, rgba($color-primary,0.9),rgba($color-secoundary,0.8),rgba($color-tertiary,0.7));
+    border-radius: 1rem;
+}
+
+
+
+#preloader{
+    background:white;
+    background-image:url(../img/preloder.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 4000;
+}
+
+
+.slide-top-btn{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background:$color-tertiary;
+    bottom: 50px;
+    right: 70px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 22px;
+    z-index: 3;
+    transition: 0.4s;
+  }
+  .slide-top-btn:hover{
+
+    background: rgba($color-tertiary, 0.8);
+  }

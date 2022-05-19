@@ -1,0 +1,51 @@
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin transform-center{
+
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+
+}
+
+/*
+
+0---600px -phone
+600---900px - tablet portrait
+900---1200px -p tablet landscape
+1200-- 1800px is where our normal style apply;
+1800+ -dexktop
+
+*/
+
+//Order : Base +typography > general layout > grid > page layout > component
+
+
+@mixin respond($breakpoint){
+
+    @if $breakpoint ==phone{
+        @media (max-width :37.7em) { @content };  //600px/16= 37.7em
+    }
+
+    @if $breakpoint ==tab-port{
+        @media (max-width :57.25em) { @content }; //900px
+    }
+
+    @if $breakpoint ==tab-land{
+        @media (max-width : 75em) { @content }; //1200px
+    }
+
+    @if $breakpoint ==big-desktop{
+        @media (min-width : 112.5em) { @content }; //1800px
+    }
+   
+}
+
+ 
